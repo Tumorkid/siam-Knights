@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Mar  7 15:41:10 2021
+
+@author: chris
+"""
+#Reimann Integral of a continuous function f(x) over the interval [a,b]
+
+# Number of partitions for Reimann sum
+N=10000
+#Lower limit of integration
+a=0
+#Upper limit of integration
+b=1
+#Initialize Sum=0 for the Reimann sum. This ensures we start adding to zero
+Sum=0
+#Width of subinterval in Reimann sum delta x
+dx=(b-a)/N
+
+import numpy as np
+
+#Define the function you wish to integrate
+def f(x):
+    return np.sin(x)
+
+#Reimann sum from i=0 to i=N using left endpoints
+for i in range(N-1):
+    Sum=Sum+f(a+i*dx)*dx
+    
+print(Sum)
+    
